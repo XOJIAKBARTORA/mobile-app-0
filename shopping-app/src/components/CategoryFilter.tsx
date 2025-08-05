@@ -8,15 +8,15 @@ interface CategoryFilterProps {
 
 const CategoryFilter: React.FC<CategoryFilterProps> = ({ selectedCategory, onCategoryChange }) => {
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md mb-6">
-      <h3 className="text-lg font-semibold mb-3">Categories</h3>
-      <div className="flex flex-wrap gap-2">
+    <div className="bg-brand-white p-6 rounded-xl shadow-md mb-6 border border-gray-100">
+      <h3 className="text-xl font-bold text-brand-black mb-4">Categories</h3>
+      <div className="flex flex-wrap gap-3">
         <button
           onClick={() => onCategoryChange('')}
-          className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+          className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
             selectedCategory === ''
-              ? 'bg-primary-600 text-white'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              ? 'bg-brand-dark-blue text-brand-white shadow-lg'
+              : 'bg-gray-100 text-brand-black hover:bg-gray-200'
           }`}
         >
           All Products
@@ -26,10 +26,10 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ selectedCategory, onCat
           <button
             key={category.id}
             onClick={() => onCategoryChange(category.name)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center space-x-2 ${
+            className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 ${
               selectedCategory === category.name
-                ? 'bg-primary-600 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ? 'bg-brand-dark-blue text-brand-white shadow-lg'
+                : 'bg-gray-100 text-brand-black hover:bg-gray-200'
             }`}
           >
             <span>{category.icon}</span>

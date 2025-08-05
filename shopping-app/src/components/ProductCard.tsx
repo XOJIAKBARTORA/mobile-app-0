@@ -30,7 +30,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-brand-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
       <div className="relative">
         <img
           src={product.image}
@@ -38,22 +38,26 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           className="w-full h-48 object-cover"
         />
         {!product.inStock && (
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <span className="text-white font-semibold">Out of Stock</span>
+          <div className="absolute inset-0 bg-brand-black bg-opacity-60 flex items-center justify-center">
+            <span className="text-brand-white font-semibold bg-red-500 px-3 py-1 rounded-full text-sm">
+              Out of Stock
+            </span>
           </div>
         )}
       </div>
       
       <div className="p-4">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-primary-600 font-medium">{product.category}</span>
+          <span className="text-sm text-brand-dark-blue font-medium bg-blue-50 px-2 py-1 rounded-full">
+            {product.category}
+          </span>
           <div className="flex items-center space-x-1">
             {renderStars(product.rating)}
             <span className="text-sm text-gray-500 ml-1">({product.rating})</span>
           </div>
         </div>
         
-        <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+        <h3 className="text-lg font-semibold text-brand-black mb-2 line-clamp-2">
           {product.name}
         </h3>
         
@@ -62,16 +66,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </p>
         
         <div className="flex items-center justify-between">
-          <span className="text-2xl font-bold text-gray-900">
+          <span className="text-2xl font-bold text-brand-black">
             ${product.price}
           </span>
           
           <button
             onClick={handleAddToCart}
             disabled={!product.inStock}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-md font-medium transition-colors ${
+            className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 transform ${
               product.inStock
-                ? 'bg-primary-600 text-white hover:bg-primary-700'
+                ? 'bg-brand-dark-blue text-brand-white hover:bg-brand-navy hover:scale-105 shadow-md hover:shadow-lg'
                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'
             }`}
           >
